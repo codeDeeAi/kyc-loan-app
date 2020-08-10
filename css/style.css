@@ -1,0 +1,25 @@
+/* Navigation Menu */
+
+.container-90 {
+    width: 90%;
+    margin: auto;
+}
+
+.container-nav .collapsible,
+.container-nav .collapsible-header,
+.container-nav .collapsible-body {
+    border: none;
+}
+
+.container-nav .profile {
+    margin: 4rem auto 2rem;
+}
+
+
+/* Home Page  */
+
+.container-home,
+.container-home .container-home-right,
+.container-home .container-home-left {
+    min-height: 100vh;
+}
