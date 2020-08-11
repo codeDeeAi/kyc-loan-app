@@ -9,10 +9,45 @@
 .container-nav .collapsible-header,
 .container-nav .collapsible-body {
     border: none;
+    letter-spacing: 1px;
+    font-size: large;
+    text-transform: uppercase;
+    font-weight: 450;
 }
 
-.container-nav .profile {
+.container-nav .collapsible .collapsible-body {
+    min-height: 20vh;
+}
+
+.container-nav .collapsible .collapsible-body ul li a {
+    letter-spacing: 1px;
+    font-size: large;
+    text-transform: uppercase;
+}
+
+.container-nav .collapsible-header .profile {
     margin: 4rem auto 2rem;
+}
+
+
+/* Login Page */
+
+.container-login .card {
+    margin-top: 15vh;
+    min-height: 70vh;
+    border-radius: 2%;
+}
+
+.container-login .card .card-content {
+    padding-top: 4rem;
+}
+
+.container-login .card .card-content form {
+    padding-top: 2rem;
+}
+
+.container-login .card .card-content form input {
+    margin: 1.5rem auto;
 }
 
 

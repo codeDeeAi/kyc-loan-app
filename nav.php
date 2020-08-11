@@ -22,7 +22,7 @@
 
         <div class="container-90">
             <!-- Navigation Profile Header -->
-            <div class="profile">
+            <div class="profile" style="margin: 3rem auto 2rem;">
                 <div class="container-90">
                     <!-- Profile image -->
                     <div class="user">
@@ -30,9 +30,15 @@
                     </div>
                     <!-- Details -->
                     <div class="profile-details">
-                        <h5>Lola Smith</h5>
+                        <h5><a class='dropdown-trigger' href='#' data-target='settings'>Lola Smith</a> <i class="material-icons right tiny">arrow</i></h5>
                         <p>Lola@xyz.com</p>
                         <p>Bank Agent</p>
+
+                        <!-- Dropdown Structure -->
+                        <ul id='settings' class='dropdown-content'>  
+                            <li><a href="#!" class="black-text"><i class="material-icons left">remove_red_eye</i>Profile</a></li>
+                            <li><a href="#!" class="black-text"><i class="material-icons left">lock</i>Logout</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -40,16 +46,34 @@
             <div class="content z-depth-0">
                 <ul class="collapsible z-depth-0">
                     <li>
-                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        <div class="collapsible-header"><i class="material-icons">people</i>Customers</div>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">remove_red_eye</i>View</a></li>
+                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">add</i> Add</a></li>
+                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">home</i> test</a></li>
+                            </ul>
+                        </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        <div class="collapsible-header"><i class="material-icons">euro_symbol</i>Loan</div>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">home</i> test</a></li>
+                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">home</i> test</a></li>
+                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">home</i> test</a></li>
+                            </ul>
+                        </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        <div class="collapsible-header"><i class="material-icons">person</i>KYC</div>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">home</i> test</a></li>
+                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">home</i> test</a></li>
+                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">home</i> test</a></li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </div>
