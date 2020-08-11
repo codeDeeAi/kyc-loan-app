@@ -1,8 +1,18 @@
+body {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+
 /* Navigation Menu */
 
 .container-90 {
     width: 90%;
     margin: auto;
+}
+
+.container-nav {
+    overflow-y: auto;
 }
 
 .container-nav .collapsible,
@@ -56,5 +66,9 @@
 .container-home,
 .container-home .container-home-right,
 .container-home .container-home-left {
-    min-height: 100vh;
+    height: 100vh;
+}
+
+.container-home .container-home-right {
+    overflow-y: auto;
 }

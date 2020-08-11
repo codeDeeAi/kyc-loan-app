@@ -46,11 +46,14 @@
             <div class="content z-depth-0">
                 <ul class="collapsible z-depth-0">
                     <li>
+                        <a href="index.php" class="collapsible-header waves-light waves-effect black-text"><i class="material-icons">home</i>Home</a>
+                    </li>
+                    <li>
                         <div class="collapsible-header"><i class="material-icons">people</i>Customers</div>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">remove_red_eye</i>View</a></li>
-                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">add</i> Add</a></li>
+                                <li><a href="viewaccounts.php" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">remove_red_eye</i>View</a></li>
+                                <li><a href="addaccount.php" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">add</i> Add</a></li>
                                 <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">home</i> test</a></li>
                             </ul>
                         </div>
