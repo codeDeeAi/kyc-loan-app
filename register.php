@@ -25,12 +25,12 @@
                                     lname = $("#lastname").val();
                                     email = $("#emailid").val();
                                     password = $("#passwordid").val();
-                                    // staffId = $("#staffid").val();
+                                    role = $("#staffrole").val();
 
                                     $.ajax({
                                         type: "POST",
                                         url: "adduser.php",
-                                        data: "fname="+fname+"&lname="+lname+"&email="+email+"&password="+password,
+                                        data: "fname="+fname+"&lname="+lname+"&email="+email+"&password="+password + "&role="+role,
                                         success: function(html){
                                         if(html=='true')
                                         {                                            
@@ -107,14 +107,14 @@
                             <label >Last Name</label>
                             <input type="text" id="lastname" name="lname" maxlength="25" class="form-group validate">
                         </div>
-                        <div class="col s12">
+                        <div class="col s6">
                             <label >Email</label>
                             <input type="email" id="emailid" name="email" maxlength="50" class="form-group validate">
                         </div>
-                        <!-- <div class="col s6">
-                            <label >Staff ID</label>
-                            <input type="text" id="staffid" name="staffId" maxlength="25" class="form-group validate">
-                        </div> -->
+                        <div class="col s6">
+                            <label >Staff Role</label>
+                            <input type="text" id="staffrole" name="staffrole" maxlength="25" class="form-group validate">
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col s10 offset-s1">

@@ -12,7 +12,7 @@ if ($mysqli->connect_error) {
 $fname = mysqli_real_escape_string($mysqli, $_POST['fname']);
 $lname = mysqli_real_escape_string($mysqli, $_POST['lname']);
 $email = mysqli_real_escape_string($mysqli, $_POST['email']);
-// $staffId = mysqli_real_escape_string($mysqli, $_POST['staffId']);
+$role = mysqli_real_escape_string($mysqli, $_POST['role']);
 $password = mysqli_real_escape_string($mysqli, $_POST['password']);
 
 //VALIDATION
@@ -42,7 +42,7 @@ if (strlen($fname) < 2) {
 	
 		if ($num_row < 1) {
 
-			$insert_row = $mysqli->query("INSERT INTO users (firstname, lastname, email, password) VALUES ('$fname', '$lname', '$email', '$spassword')");
+			$insert_row = $mysqli->query("INSERT INTO users (firstname, lastname, email, password, role) VALUES ('$fname', '$lname', '$email', '$spassword', '$role')");
             if ($insert_row) {
 
 				// $_SESSION['login'] = $mysqli->insert_id;

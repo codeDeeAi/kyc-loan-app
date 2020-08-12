@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$staffId = $_POST['staffId'];
+$email = $_POST['email'];
 $password = $_POST['password'];
 
 //Open a new connection to the MySQL server
@@ -13,18 +13,20 @@ if ($mysqli->connect_error) {
     die('Error : (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
 }
 
-$query = "SELECT * FROM bankagent WHERE staffId='$staffId'";
+$query = "SELECT * FROM users WHERE email='$email'";
 $result = mysqli_query($mysqli, $query) or die(mysqli_error());
 $num_row = mysqli_num_rows($result);
 $row = mysqli_fetch_array($result);
 
 if ($num_row >= 1) {
 
-    if ($password == $row['email']) {
+    if (password_verify($password, $row['password'])) {
 
-        $_SESSION['login'] = $row['staffId'];
-        $_SESSION['fname'] = $row['firstName'];
-        $_SESSION['lname'] = $row['lastName'];
+        $_SESSION['login'] = $row['staffid'];
+        $_SESSION['fname'] = $row['firstname'];
+        $_SESSION['lname'] = $row['lastname'];
+        $_SESSION['role'] = $row['role'];
+        $_SESSION['email'] = $row['email'];
         echo 'true';
     }
     else {

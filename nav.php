@@ -1,3 +1,15 @@
+<?php
+//Initialize Session
+session_start();
+
+if (isset($_SESSION['login'])) {
+
+    $fname = $_SESSION['fname'];
+    $lname = $_SESSION['lname'];
+    $role = $_SESSION['role'];
+    $email = $_SESSION['email'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,9 +47,9 @@
                     </div>
                     <!-- Details -->
                     <div class="profile-details">
-                        <h5><a class='dropdown-trigger' href='#' data-target='settings'>Lola Smith</a> <i class="material-icons right tiny">arrow</i></h5>
-                        <p>Lola@xyz.com</p>
-                        <p>Bank Agent</p>
+                        <h5><a class='dropdown-trigger' href='#' data-target='settings'><?php echo $fname; echo " "; echo $lname; ?></a> <i class="material-icons right tiny">arrow</i></h5>
+                        <p><?php echo $email; ?></p>
+                        <p><?php echo $role; ?></p>
 
                         <!-- Dropdown Structure -->
                         <ul id='settings' class='dropdown-content'>  
@@ -94,3 +106,9 @@
 </body>
 
 </html>
+<?php
+
+} else {
+    header("location:login.php ");
+}
+?>

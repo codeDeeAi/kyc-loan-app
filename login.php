@@ -21,12 +21,12 @@
 			
                             $("#login").click(function(){
                                 
-                                    staffId=$("#username").val();
+                                    email=$("#username").val();
                                     password=$("#password").val();
                                     $.ajax({
                                         type: "POST",
                                         url: "check.php",
-                                        data: "staffId="+staffId+"&password="+password,
+                                        data: "email="+email+"&password="+password,
                                         success: function(html){
                                         if(html=='true')
                                         {                                            
@@ -78,14 +78,14 @@
                 <form >
                     <div class="row">
                         <div class="col s10 offset-s1">
-                            <label for="username" id="username">Username</label>
-                            <input type="text" name="username" maxlength="25" class="form-group validate">
+                            <label >Username</label>
+                            <input type="email" id="username" name="username" maxlength="50" class="form-group validate">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s10 offset-s1">
-                            <label for="username" id="password">Password</label>
-                            <input type="password" name="password" maxlength="25" class="form-group validate">
+                            <label >Password</label>
+                            <input type="password" id="password" name="password" maxlength="25" class="form-group validate">
                         </div>
                     </div>
                     <div class="row form-controls">
