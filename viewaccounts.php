@@ -1,3 +1,15 @@
+<?php
+//Initialize Session
+session_start();
+
+if (isset($_SESSION['login'])) {
+
+    $fname = $_SESSION['fname'];
+    $lname = $_SESSION['lname'];
+    $role = $_SESSION['role'];
+    $email = $_SESSION['email'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -187,3 +199,9 @@
 </body>
 
 </html>
+<?php
+
+} else {
+    header("location:login.php ");
+}
+?>

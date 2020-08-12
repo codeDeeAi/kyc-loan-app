@@ -1,3 +1,15 @@
+<?php
+//Initialize Session
+session_start();
+
+if (isset($_SESSION['login'])) {
+
+    $fname = $_SESSION['fname'];
+    $lname = $_SESSION['lname'];
+    $role = $_SESSION['role'];
+    $email = $_SESSION['email'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,123 +44,72 @@
                 email = $("#email").val();
                 accountno = $("#disabledaccount").val();
                 accounttype = $("#account_type").val();
-                bvn = $("#disabledbvn").val();
                 address = $("#address").val();
                 state = $("#state").val();
                 country = $("#country").val();
                 accountstatus = $("#accountstatus").val();
-                kycstatus = $("#kycstatus").val();
-                verifieddate = $("#verifieddate").val();
-                staffid = $("#approvalid").val();
 
                 $.ajax({
                     type: "POST",
                     url: "send.php",
-                    data: "fname=" + fname + "&mname=" + mname + "&lname=" + lname + "&gender=" + gender + "&dob=" + dob + "&relationship=" + relationship + "&pnumber=" + pnumber + "&email=" + email + "&address=" + address + "&state=" + state + "&country=" + country + "&accountstatus=" + accountstatus ,
+                    data: "fname=" + fname + "&mname=" + mname + "&lname=" + lname + "&gender=" + gender + "&dob=" + dob + "&relationship=" + relationship + "&pnumber=" + pnumber + "&email=" + email + "&accountno=" + accountno + "&accounttype=" + accounttype + "&address=" + address + "&state=" + state + "&country=" + country + "&accountstatus=" + accountstatus ,
                     success: function (html) {
                         if (html == 'true') {
                             M.toast({html: 'Account Added sucessfully!'});
-                            $("#add_err2").html('<div class="alert alert-success"> \
-                                                 <strong>Account</strong> added succesfully. \ \
-                                                 </div>');
 
                             window.location.href = "addaccount.php";                            
 
-                        }
-                        else if (html == 'connecterror') {
-                            M.toast({html: 'Pls login to perform task.'});
-                            $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Pls Login</strong> to perform task. \ \
-                                                 </div>');                    
-
                         } else if (html == 'false') {
-                            M.toast({html: 'Email Address already in system.'});
-                            $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Email Address</strong> already in system. \ \
-                                                 </div>');                    
+                            M.toast({html: 'Email Address already in system.'});                   
 
                         } else if (html == 'fname') {
                             M.toast({html: 'First Name is required.'});
-                            $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>First Name</strong> is required. \ \
-                                                 </div>');
 												 
 						} else if (html == 'lname') {
                             M.toast({html: 'Last Name is required.'});
-                            $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Last Name</strong> is required. \ \
-                                                 </div>');
 
                         }  else if (html == 'gender') {
                             M.toast({html: 'Gender is required.'});
-                            $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Gender</strong> is required. \ \
-                                                 </div>');
 
                         }
                         else if (html == 'dob') {
                             M.toast({html: 'Date of Birth is required.'});
-                            $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Date of Birth</strong> is required. \ \
-                                                 </div>');
 
                         }
                         else if (html == 'relationship') {
                             M.toast({html: 'Relationship Status is required.'});
-                            $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Relationship Status</strong> is required. \ \
-                                                 </div>');
+
+                        }else if (html == 'accountno') {
+                            M.toast({html: 'Account number must be 10 digits.'});
 
                         }else if (html == 'eformat') {
                             M.toast({html: 'Email Address format is not valid.'});
-                            $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Email Address</strong> format is not valid. \ \
-                                                 </div>');
 												 
 						} else if (html == 'pnumber') {
                             M.toast({html: 'Phone number is required.'});
-                            $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Phone number</strong> must be at least 4 characters . \ \
-                                                 </div>');
 
                         }
                         else if (html == 'address') {
                             M.toast({html: 'Address is required.'});
-                            $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Address</strong> is required. \ \
-                                                 </div>');
 
                         }
                         else if (html == 'state') {
                             M.toast({html: 'State is required.'});
-                            $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>State</strong> is required. \ \
-                                                 </div>');
 
                         }
                         else if (html == 'country') {
                             M.toast({html: 'Country is required.'});
-                            $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Country</strong> is required. \ \
-                                                 </div>');
 
                         }
                         else if (html == 'accountstatus') {
                             M.toast({html: 'Account Status is required.'});
-                            $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Account Status</strong> is required. \ \
-                                                 </div>');
 
                         } else {
                             M.toast({html: 'Error processing request. Please try again.'});
-                            $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Error</strong> processing request. Please try again. \ \
-                                                 </div>');
                         }
                     },
                     beforeSend: function () {
                         M.toast({html: 'loading...'});
-                        $("#add_err2").html("loading...");
                     }
                 });
                 return false;
@@ -176,30 +137,30 @@
                     <div class="container">
                              <div class="row">
                                 <div class="add-record">
-                                <form action="send.php" method="post" class="col s12" style="margin: 3rem auto;">
+                                <form role="form" class="col s12" style="margin: 3rem auto;">
                                 <div class="row">
                                     <div class="input-field col s6">
                                     <input placeholder="" id="first_name" name="first_name" type="text" class="validate">
-                                    <label for="first_name">First Name</label>
+                                    <label>First Name</label>
                                     </div>
                                     <div class="input-field col s6">
                                     <input id="middle_name" name="middle_name" type="text" class="validate">
-                                    <label for="middle_name">Middle Name</label>
+                                    <label>Middle Name</label>
                                     </div>
                                     <div class="input-field col s6">
                                     <input id="last_name" name="last_name" type="text" class="validate">
-                                    <label for="last_name">Last Name</label>
+                                    <label>Last Name</label>
                                     </div>
                                     <div class="input-field col s3">
                                             <select id="gender" name="gender" type="text" class="validate">
                                             <option value="1">Male</option>
                                             <option value="2">Female</option>
                                             </select>
-                                            <label for="gender">Gender</label>
+                                            <label>Gender</label>
                                     </div>
                                     <div class="input-field col s3">
                                     <input id="dob" name="dob" type="text" class="datepicker validate">
-                                    <label for="dob">Date Of Birth</label>
+                                    <label>Date Of Birth</label>
                                     </div>                                    
                                 </div>
                                 <div class="row">
@@ -210,44 +171,44 @@
                                             <option value="1">Divorced</option>
                                             <option value="2">Others</option>
                                             </select>
-                                            <label for="relationship">Relationship</label>
+                                            <label>Relationship</label>
                                     </div>
                                     <div class="input-field col s4">
                                     <input id="phonenumber" name="phonenumber" type="text" class="validate">
-                                    <label for="phonenumber">Phone Number</label>
+                                    <label>Phone Number</label>
                                     </div>
                                     <div class="input-field col s4">
                                     <input id="email" name="email" type="email" class="validate">
-                                    <label for="email">Email</label>
+                                    <label>Email</label>
                                     </div>
                                     <div class="input-field col s5">
-                                    <input name="disabledaccount" disabled value="Account number is unavailable" id="disabledaccount" type="text" class="validate">
-                                    <label for="disabledaccount">Account Number</label>
+                                    <input name="disabledaccount"  id="disabledaccount" type="text" class="validate">
+                                    <label>Account Number</label>
                                     </div>
                                     <div class="input-field col s2">
                                             <select name="account_type" id="account_type" type="text" class="validate">
                                             <option value="1">Current</option>
                                             <option value="2">Savings</option>
                                             </select>
-                                            <label for="account_type">Account Type</label>
+                                            <label>Account Type</label>
                                     </div>
                                     <div class="input-field col s5">
                                     <input disabled value="BVN is unavailable" name="disabledbvn" id="disabledbvn" type="text" class="validate">
-                                    <label for="disabledbvn">Bank Verificaton Nunmber</label>
+                                    <label>Bank Verificaton Nunmber</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                      <div class="input-field col s6">
                                     <input id="address" name="address" type="text" class="validate">
-                                    <label for="address">Address</label>
+                                    <label>Address</label>
                                     </div>
                                      <div class="input-field col s3">
                                     <input id="state" name="state" type="text" class="validate">
-                                    <label for="state">State</label>
+                                    <label>State</label>
                                     </div>
                                      <div class="input-field col s3">
                                     <input id="country" name="country" type="text" class="validate">
-                                    <label for="country">Country</label>
+                                    <label>Country</label>
                                     </div>
                                     <div class="input-field col s6">
                                             <select id="accountstatus" name="accountstatus" type="text" class="validate">
@@ -256,7 +217,7 @@
                                             <option value="1">Dormant</option>
                                             <option value="2">Frozen</option>
                                             </select>
-                                            <label for="accountstatus">Account Status</label>
+                                            <label>Account Status</label>
                                     </div>
                                     <div class="input-field col s6">
                                             <select id="kycstatus" name="kycstatus" type="text" class="validate">
@@ -264,22 +225,20 @@
                                             <option value="2">Non-Verified</option>
                                             <option value="1">Submitted</option>
                                             </select>
-                                            <label for="kycstatus">KYC Status</label>
+                                            <label>KYC Status</label>
                                     </div>
                                     <div class="input-field col s6">
                                     <input id="verifieddate" name="verifieddate" type="text" class="datepicker validate">
-                                    <label for="verifieddate">KYC Verified Date</label>
+                                    <label>KYC Verified Date</label>
                                     </div>
                                     <div class="input-field col s6">
                                     <input id="approvalid" name="approvalid" type="text" class="validate">
-                                    <label for="approvalid">Staff ID</label>
+                                    <label>Staff ID</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-controls">
-                                        <button type="submit" id="add"  class="btn waves-effect waves-light green col s3 offset-s9"><i class="material-icons right">save</i>Add Record</button>
-                                        <!-- <a href="" class="btn waves-effect waves-light green col s3 offset-s9" ><i class="material-icons right">save</i>Add Record</a> -->
-                                        
+                                        <button type="submit" id="add"  class="btn waves-effect waves-light green col s3 offset-s9"><i class="material-icons right">save</i>Add Record</button>                                        
                                     </div>
                                 </div>
                                 </form>
@@ -303,3 +262,9 @@
 </body>
 
 </html>
+<?php
+
+} else {
+    header("location:login.php ");
+}
+?>

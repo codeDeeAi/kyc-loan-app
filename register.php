@@ -1,3 +1,15 @@
+<?php
+//Initialize Session
+session_start();
+
+if (isset($_SESSION['login'])) {
+
+    $fname = $_SESSION['fname'];
+    $lname = $_SESSION['lname'];
+    $role = $_SESSION['role'];
+    $email = $_SESSION['email'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,9 +47,6 @@
                                         if(html=='true')
                                         {                                            
                                             M.toast({html: 'Account Created.'});
-                                            $("#add_err2").html('<div class="alert alert-danger"> \
-                                                                <strong>Created Staff Login</strong>  \ \
-                                                                </div>');
 
                                             window.location.href = "register.php";
                                         
@@ -113,7 +122,13 @@
                         </div>
                         <div class="col s6">
                             <label >Staff Role</label>
-                            <input type="text" id="staffrole" name="staffrole" maxlength="25" class="form-group validate">
+                            <select id="staffrole" name="staffrole"  class="form-group validate">
+                                <option value="1">Bank Agent</option>
+                                <option value="2">Customer Care</option>
+                                <option value="3">Loan Officer</option>
+                                <option value="3">KYC Officer</option>
+                                </select>
+                            
                         </div>
                     </div>
                     <div class="row">
@@ -145,3 +160,9 @@
 </body>
 
 </html>
+<?php
+
+} else {
+    header("location:login.php ");
+}
+?>

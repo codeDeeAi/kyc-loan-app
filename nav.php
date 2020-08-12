@@ -1,6 +1,4 @@
 <?php
-//Initialize Session
-session_start();
 
 if (isset($_SESSION['login'])) {
 
