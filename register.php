@@ -25,12 +25,12 @@
                                     lname = $("#lastname").val();
                                     email = $("#emailid").val();
                                     password = $("#passwordid").val();
-                                    staffId = $("#staffid").val();
+                                    // staffId = $("#staffid").val();
 
                                     $.ajax({
                                         type: "POST",
                                         url: "adduser.php",
-                                        data: "fname="+fname+"&lname="+lname+"&email="+email+"&staffId="+staffId+"&password="+password,
+                                        data: "fname="+fname+"&lname="+lname+"&email="+email+"&password="+password,
                                         success: function(html){
                                         if(html=='true')
                                         {                                            
@@ -41,7 +41,23 @@
 
                                             window.location.href = "register.php";
                                         
-                                        } else if (html=='false') {
+                                        } else if (html=='fname') {
+                                            M.toast({html: 'Input Firstname / Error in format'});                                                
+                                        
+                                        } else if (html=='lname') {
+                                            M.toast({html: 'Input Lastname / Error in format'})                                               
+                                        
+                                        }else if (html=='eshort') {
+                                            M.toast({html: 'Email field : Minimum number of letters is 4'})                                               
+                                        
+                                        }else if (html=='eformat') {
+                                            M.toast({html: 'Email format eror'})                                               
+                                        
+                                        }else if (html=='pshort') {
+                                            M.toast({html: 'Password is too short. Minimum length is 4 char '})                                               
+                                        
+                                        }
+                                         else if (html=='false') {
                                             M.toast({html: 'Error creating staff login account.'});
                                             $("#add_err2").html('<div class="alert alert-danger"> \
                                                                 <strong>Error</strong> creating staff login account \ \
@@ -91,14 +107,14 @@
                             <label >Last Name</label>
                             <input type="text" id="lastname" name="lname" maxlength="25" class="form-group validate">
                         </div>
-                        <div class="col s6">
+                        <div class="col s12">
                             <label >Email</label>
-                            <input type="email" id="emailid" name="email" maxlength="25" class="form-group validate">
+                            <input type="email" id="emailid" name="email" maxlength="50" class="form-group validate">
                         </div>
-                        <div class="col s6">
+                        <!-- <div class="col s6">
                             <label >Staff ID</label>
                             <input type="text" id="staffid" name="staffId" maxlength="25" class="form-group validate">
-                        </div>
+                        </div> -->
                     </div>
                     <div class="row">
                         <div class="col s10 offset-s1">
