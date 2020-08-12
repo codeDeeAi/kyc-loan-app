@@ -54,7 +54,7 @@ if (isset($_SESSION['login'])) {
                         <!-- Dropdown Structure -->
                         <ul id='settings' class='dropdown-content'>  
                             <li><a href="#!" class="black-text"><i class="material-icons left">remove_red_eye</i>Profile</a></li>
-                            <li><a href="#!" class="black-text"><i class="material-icons left">lock</i>Logout</a></li>
+                            <li><a href="logout.php" class="black-text"><i class="material-icons left">lock</i>Logout</a></li>
                         </ul>
                     </div>
                 </div>
