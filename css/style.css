@@ -26,7 +26,7 @@ body {
 }
 
 .container-nav .collapsible .collapsible-body {
-    min-height: 20vh;
+    min-height: 15vh;
 }
 
 .container-nav .collapsible .collapsible-body ul li a {

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Bank XYZ</title>
+    <title>Register - Bank XYZ</title>
     <link rel="icon" href="imgs/money.jpg">
     <!-- Font-awesome -->
     <link href="font-awesome/all.css" rel="stylesheet">
@@ -19,28 +19,32 @@
     <script type="text/javascript">
         		$(document).ready(function(){
 			
-                            $("#login").click(function(){
-                                
-                                    staffId=$("#username").val();
-                                    password=$("#password").val();
+                            $("#register").click(function(){
+                                    
+                                    fname = $("#firstname").val();
+                                    lname = $("#lastname").val();
+                                    email = $("#emailid").val();
+                                    password = $("#passwordid").val();
+                                    staffId = $("#staffid").val();
+
                                     $.ajax({
                                         type: "POST",
-                                        url: "check.php",
-                                        data: "staffId="+staffId+"&password="+password,
+                                        url: "adduser.php",
+                                        data: "fname="+fname+"&lname="+lname+"&email="+email+"&staffId="+staffId+"&password="+password,
                                         success: function(html){
                                         if(html=='true')
                                         {                                            
-                                            M.toast({html: 'Authenticated.'});
+                                            M.toast({html: 'Account Created.'});
                                             $("#add_err2").html('<div class="alert alert-danger"> \
-                                                                <strong>Authenticated</strong>  \ \
+                                                                <strong>Created Staff Login</strong>  \ \
                                                                 </div>');
 
-                                            window.location.href = "index.php";
+                                            window.location.href = "register.php";
                                         
                                         } else if (html=='false') {
-                                            M.toast({html: 'Authentication failure.'});
+                                            M.toast({html: 'Error creating staff login account.'});
                                             $("#add_err2").html('<div class="alert alert-danger"> \
-                                                                <strong>Authentication</strong> failure. \ \
+                                                                <strong>Error</strong> creating staff login account \ \
                                                             </div>');
                                                 
                                         
@@ -50,9 +54,11 @@
                                                                     <strong>Error</strong> processing request. Please try again. \ \
                                                                 </div>');
                                         }
+
                                         },
                                         beforeSend:function()
                                         {
+                                            M.toast({html: 'loading...'});
                                             $("#add_err2").html("loading...");
                                         }
                                     });
@@ -71,26 +77,38 @@
         <div class="col s12 m6 offset-m3">
         <div class="card">
             <div class="card-content">
-            <span class="card-title center">XYZ Login</span>
+            <span class="card-title center">XYZ Register Staff</span>
                     <!-- <div class="row">
                         <div class="error col s12 red-text grey" id="add_err2" style="height: 10px;"></div>
                     </div> -->
-                <form >
+                <form role="form" >
                     <div class="row">
-                        <div class="col s10 offset-s1">
-                            <label for="username" id="username">Username</label>
-                            <input type="text" name="username" maxlength="25" class="form-group validate">
+                        <div class="col s6">
+                            <label >First Name</label>
+                            <input type="text" id="firstname" name="fname" maxlength="25" class="form-group validate">
+                        </div>
+                        <div class="col s6">
+                            <label >Last Name</label>
+                            <input type="text" id="lastname" name="lname" maxlength="25" class="form-group validate">
+                        </div>
+                        <div class="col s6">
+                            <label >Email</label>
+                            <input type="email" id="emailid" name="email" maxlength="25" class="form-group validate">
+                        </div>
+                        <div class="col s6">
+                            <label >Staff ID</label>
+                            <input type="text" id="staffid" name="staffId" maxlength="25" class="form-group validate">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s10 offset-s1">
-                            <label for="username" id="password">Password</label>
-                            <input type="password" name="password" maxlength="25" class="form-group validate">
+                            <label>Password</label>
+                            <input type="password" id="passwordid" name="password" maxlength="25" class="form-group validate">
                         </div>
                     </div>
                     <div class="row form-controls">
                         <div class="col s4 offset-s4">
-                           <button class="btn waves-effect waves-light col s12" id="login">Sign-In</button>
+                           <button type="submit"  class="btn waves-effect waves-light col s12" id="register">Register</button>
                         </div>
                     </div>
                 </form>

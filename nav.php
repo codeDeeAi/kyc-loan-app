@@ -21,6 +21,11 @@
     <div class="container-nav row ">
 
         <div class="container-90">
+            <nav class="transparent z-depth-0 hide">
+                <div class="nav-wrapper">
+                <a href="#" class="brand-logo black-text">XYZ</a>
+                </div>
+            </nav>
             <!-- Navigation Profile Header -->
             <div class="profile" style="margin: 3rem auto 2rem;">
                 <div class="container-90">
@@ -54,7 +59,6 @@
                             <ul>
                                 <li><a href="viewaccounts.php" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">remove_red_eye</i>View</a></li>
                                 <li><a href="addaccount.php" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">add</i> Add</a></li>
-                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">home</i> test</a></li>
                             </ul>
                         </div>
                     </li>
@@ -62,9 +66,7 @@
                         <div class="collapsible-header"><i class="material-icons">euro_symbol</i>Loan</div>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">home</i> test</a></li>
-                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">home</i> test</a></li>
-                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">home</i> test</a></li>
+                                <li><a href="viewloan.php" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">remove_red_eye</i>View</a></li>
                             </ul>
                         </div>
                     </li>
@@ -72,9 +74,7 @@
                         <div class="collapsible-header"><i class="material-icons">person</i>KYC</div>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">home</i> test</a></li>
-                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">home</i> test</a></li>
-                                <li><a href="#" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">home</i> test</a></li>
+                                <li><a href="viewloan.php" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">remove_red_eye</i>View</a></li>
                             </ul>
                         </div>
                     </li>
