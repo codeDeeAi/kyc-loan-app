@@ -6,6 +6,20 @@ if (isset($_SESSION['login'])) {
     $lname = $_SESSION['lname'];
     $role = $_SESSION['role'];
     $email = $_SESSION['email'];
+    $r1 = 'Bank Agent';
+    $r2 = 'Customer Care';
+    $r3 = 'Loan Officer';
+    $r4 = 'KYC Officer';
+
+    if($role = $r1){
+        // echo 'hide1';
+    }elseif($role = $r2){
+        // echo 'hide2';
+    }elseif($role = $r3){
+        // echo 'hide3';
+    }else{
+        // echo 'hide4';
+    }
 
 ?>
 <!DOCTYPE html>
@@ -24,6 +38,8 @@ if (isset($_SESSION['login'])) {
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
     <!-- style -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- JQuery -->
+    <script type="text/javascript" src="jQuery/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
@@ -64,7 +80,7 @@ if (isset($_SESSION['login'])) {
                         <a href="index.php" class="collapsible-header waves-light waves-effect black-text"><i class="material-icons">home</i>Home</a>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="material-icons">people</i>Customers</div>
+                        <div class="collapsible-header div1"><i class="material-icons">people</i>Customers</div>
                         <div class="collapsible-body">
                             <ul>
                                 <li><a href="viewaccounts.php" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">remove_red_eye</i>View</a></li>
@@ -73,7 +89,7 @@ if (isset($_SESSION['login'])) {
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="material-icons">euro_symbol</i>Loan</div>
+                        <div class="collapsible-header div2"><i class="material-icons">euro_symbol</i>Loan</div>
                         <div class="collapsible-body">
                             <ul>
                                 <li><a href="viewloan.php" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">remove_red_eye</i>View</a></li>
@@ -81,7 +97,7 @@ if (isset($_SESSION['login'])) {
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="material-icons">person</i>KYC</div>
+                        <div class="collapsible-header div3"><i class="material-icons">person</i>KYC</div>
                         <div class="collapsible-body">
                             <ul>
                                 <li><a href="viewloan.php" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">remove_red_eye</i>View</a></li>
@@ -92,8 +108,6 @@ if (isset($_SESSION['login'])) {
             </div>
         </div>
     </div>
-    <!-- JQuery -->
-    <script type="text/javascript" src="jQuery/jquery-3.5.1.min.js"></script>
     <!-- font-awesome -->
     <script type="text/javascript" src="font-awesome/all.js"></script>
     <!--JavaScript at end of body for optimized loading-->

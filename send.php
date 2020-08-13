@@ -68,8 +68,8 @@ elseif (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
 	
  else {
 		
-    $query = "SELECT * FROM customeraccount WHERE phone = '$pnumber'";
-    $query2 = "SELECT * FROM customeraccount WHERE accountNo = '$accountno'";
+    $query = "SELECT * FROM customeraccounts WHERE phone = '$pnumber'";
+    $query2 = "SELECT * FROM customeraccounts WHERE accountNo = '$accountno'";
     $result = mysqli_query($mysqli, $query) or die(mysqli_error());
     $result2 = mysqli_query($mysqli, $query2) or die(mysqli_error());
     $num_row = mysqli_num_rows($result);
@@ -79,7 +79,7 @@ elseif (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
 	
 		if (($num_row < 1) && ($num_row2 < 1)) {
 
-			$insert_row = $mysqli->query("INSERT INTO customeraccount ( firstName, middleName, lastName, gender, dob, relationship, email, phone, address, state, country, accountStatus, accountType, accountNo) 
+			$insert_row = $mysqli->query("INSERT INTO customeraccounts ( firstName, middleName, lastName, gender, dob, relationship, email, phone, address, state, country, accountStatus, accountType, accountNo) 
              VALUES ('$fname', '$mname', '$lname', '$gender', '$dob', '$relationship', 
              '$email', '$pnumber', '$address', '$state', '$country', '$accountstatus','$accounttype', '$accountno')");
 
