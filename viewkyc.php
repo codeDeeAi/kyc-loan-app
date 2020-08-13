@@ -99,7 +99,7 @@ if (isset($_SESSION['login'])) {
                                 die('Error : (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
                             }
                             // select from db 
-                            $sql = "SELECT accountNo, accountType, firstName, middleName, lastName, gender, dob, relationship, email, phone, address, state, country, accountStatus, bvn, kycStatus, kycVerifiedDate FROM customeraccounts";
+                            $sql = "SELECT * FROM customeraccounts";
                             $result = $conn->query($sql);
 
                             // Validate and Loop result
@@ -190,26 +190,28 @@ if (isset($_SESSION['login'])) {
                                                 <label>Account Status</label>
                                                 </div>
                                                 <div class="input-field col s4">
-                                                <input disabled value="<?php echo $row["kycStatus"]; ?>" type="text" class="validate">
+                                                <select id="kycstatus" name="kycstatus" type="text" class="validate">
+                                                <option value="1">Verified</option>
+                                                <option value="2">Non-Verified</option>
+                                                <option value="1">Submitted</option>
+                                                </select>
                                                 <label>KYC Status</label>
                                                 </div>
                                                 <div class="input-field col s4">
-                                                <input disabled value="<?php echo $row["kycVerifiedDate"]; ?>"  type="text" class="datepicker validate">
+                                                <input id="kycdate" name="kycdate"  type="text" class="datepicker validate">
                                                 <label>KYC Verified Date</label>
                                                 </div>
-                                                <div class="input-field col s6">
-                                                        <select id="loan" name="loan" type="text" class="validate">
-                                                        <option value="1">Not Active</option>
-                                                        <option value="2">Active</option>
-                                                        <option value="3">Declined</option>
-                                                        <option value="4">Disbursed</option>
-                                                        <option value="5">Partially Disbursed</option>
-                                                        </select>
-                                                        <label>Loan Status</label>
+                                                <div class="input-field col s2">
+                                                <input disabled value="<?php echo $row["loanStatus"]; ?>"  type="text" class="datepicker validate">
+                                                <label>Loan Status</label>
                                                 </div>
-                                                <div class="input-field col s6">
-                                                <input disabled value="<?php echo $email; ?>" id="approvalid" name="approvalid" type="text" class="validate">
-                                                <label>Staff ID</label>
+                                                <div class="input-field col s5">
+                                                <input disabled value="<?php echo $row["approvalOfficerId"]; ?>" id="approvalid" name="approvalid" type="text" class="validate">
+                                                <label>Loan Staff ID</label>
+                                                </div>
+                                                <div class="input-field col s5">
+                                                <input disabled value="<?php echo $email; ?>" id="kycid" name="kycid" type="text" class="validate">
+                                                <label>KYC Staff ID</label>
                                                 </div>
                                             </div>
                                             <div class="row">

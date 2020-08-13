@@ -100,7 +100,7 @@ if (isset($_SESSION['login'])) {
                         <div class="collapsible-header div3"><i class="material-icons">person</i>KYC</div>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="viewloan.php" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">remove_red_eye</i>View</a></li>
+                                <li><a href="viewkyc.php" class="btn-flat waves-effect waves-light col s12"><i class="material-icons left">remove_red_eye</i>View</a></li>
                             </ul>
                         </div>
                     </li>

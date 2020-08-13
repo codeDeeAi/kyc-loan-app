@@ -68,7 +68,7 @@ if (isset($_SESSION['login'])) {
                                 die('Error : (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
                             }
                             // select from db 
-                            $sql = "SELECT accountNo, accountType, firstName, middleName, lastName, gender, dob, relationship, email, phone, address, state, country, accountStatus, bvn, kycStatus FROM customeraccounts";
+                            $sql = "SELECT * FROM customeraccounts";
                             $result = $conn->query($sql);
 
                             // Validate and Loop result
@@ -99,6 +99,9 @@ if (isset($_SESSION['login'])) {
                                         <p><b>Account Status :</b> <?php echo $row["accountStatus"]; ?></p>
                                         <p><b>BVN :</b> <?php echo $row["bvn"]; ?></p>
                                         <p><b>KYC Status :</b> <?php echo $row["kycStatus"]; ?></p>
+                                        <p><b>Loan Status :</b> <?php echo $row["loanStatus"]; ?></p>
+                                        <p><b>KYC Checked By :</b> <?php echo $row["kycStaffId"]; ?></p>
+                                        <p><b>Loan Approved By :</b> <?php echo $row["approvalOfficerId"]; ?></p>
                                         <p><a  class="btn-flat waves-effect waves-light secondary-content modal-trigger"><i class="material-icons">edit</i></a></p>
                                 </div>
                                 </li>
