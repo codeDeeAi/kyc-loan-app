@@ -6,20 +6,20 @@ if (isset($_SESSION['login'])) {
     $lname = $_SESSION['lname'];
     $role = $_SESSION['role'];
     $email = $_SESSION['email'];
-    $r1 = 'Bank Agent';
-    $r2 = 'Customer Care';
-    $r3 = 'Loan Officer';
-    $r4 = 'KYC Officer';
+    // $r1 = 'Bank Agent';
+    // $r2 = 'Customer Care';
+    // $r3 = 'Loan Officer';
+    // $r4 = 'KYC Officer';
 
-    if($role = $r1){
-        // echo 'hide1';
-    }elseif($role = $r2){
-        // echo 'hide2';
-    }elseif($role = $r3){
-        // echo 'hide3';
-    }else{
-        // echo 'hide4';
-    }
+    // if($role = $r1){
+    //     // echo 'hide1';
+    // }elseif($role = $r2){
+    //     // echo 'hide2';
+    // }elseif($role = $r3){
+    //     // echo 'hide3';
+    // }else{
+    //     // echo 'hide4';
+    // }
 
 ?>
 <!DOCTYPE html>
