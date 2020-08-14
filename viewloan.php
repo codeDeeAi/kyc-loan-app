@@ -45,7 +45,7 @@ if (isset($_SESSION['login'])) {
                         if (html == 'true') {
                             M.toast({html: 'Account Appended sucessfully!'});
 
-                            window.location.href = "addaccount.php";                            
+                            window.location.href = "viewloan.php";                            
 
                         } else {
                             M.toast({html: 'Error processing request. Please try again.'});
@@ -99,7 +99,7 @@ if (isset($_SESSION['login'])) {
                                 die('Error : (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
                             }
                             // select from db 
-                            $sql = "SELECT accountNo, accountType, firstName, middleName, lastName, gender, dob, relationship, email, phone, address, state, country, accountStatus, bvn, kycStatus, kycVerifiedDate FROM customeraccounts";
+                            $sql = "SELECT * FROM customeraccounts";
                             $result = $conn->query($sql);
 
                             // Validate and Loop result
@@ -198,6 +198,14 @@ if (isset($_SESSION['login'])) {
                                                 <label>KYC Verified Date</label>
                                                 </div>
                                                 <div class="input-field col s6">
+                                                <input disabled value="<?php echo $row["loanStatus"]; ?>"  type="text" class="datepicker validate">
+                                                <label>Current Loan Status</label>
+                                                </div>
+                                                <div class="input-field col s6">
+                                                <input disabled value="<?php echo $row["approvalOfficerId"]; ?>"  type="text" class="datepicker validate">
+                                                <label>Current Approve Staff ID</label>
+                                                </div>
+                                                <div class="input-field col s6">
                                                         <select id="loan" name="loan" type="text" class="validate">
                                                         <option value="1">Not Active</option>
                                                         <option value="2">Active</option>
@@ -214,7 +222,7 @@ if (isset($_SESSION['login'])) {
                                             </div>
                                             <div class="row">
                                                 <div class="form-controls">
-                                                    <button type="submit" id="append"  class="btn waves-effect waves-light green col s3 offset-s9"><i class="material-icons right">save</i>Append Record</button>                                        
+                                                    <a href="update.php?id=<?php echo $row["id"] ?>" target="_blank" class="btn waves-effect waves-light green col s3 offset-s9"><i class="material-icons right">save</i>Append Record</a>                                        
                                                 </div>
                                             </div>
                                             </form>
