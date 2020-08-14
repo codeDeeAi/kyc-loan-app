@@ -28,37 +28,6 @@ if (isset($_SESSION['login'])) {
     <link rel="stylesheet" href="css/style.css">
     <!-- JQuery -->
     <script type="text/javascript" src="jQuery/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-            $("#append").click(function () {
-
-                loan = $("#loan").val();
-                staffid = $("#approvalid").val();
-                account = $("#accountNo").val();
-
-                $.ajax({
-                    type: "POST",
-                    url: "loan.php",
-                    data: "loan=" + loan + "&staffid=" + staffid + "&account=" + account,
-                    success: function (html) {
-                        if (html == 'true') {
-                            M.toast({html: 'Account Appended sucessfully!'});
-
-                            window.location.href = "viewloan.php";                            
-
-                        } else {
-                            M.toast({html: 'Error processing request. Please try again.'});
-                        }
-                    },
-                    beforeSend: function () {
-                        M.toast({html: 'loading...'});
-                    }
-                });
-                return false;
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -222,7 +191,7 @@ if (isset($_SESSION['login'])) {
                                             </div>
                                             <div class="row">
                                                 <div class="form-controls">
-                                                    <a href="update.php?id=<?php echo $row["id"] ?>" target="_blank" class="btn waves-effect waves-light green col s3 offset-s9"><i class="material-icons right">save</i>Append Record</a>                                        
+                                                    <a href="update.php?id=<?php echo $row["id"] ?>"  class="btn waves-effect waves-light green col s3 offset-s9"><i class="material-icons right">save</i>Append Record</a>                                        
                                                 </div>
                                             </div>
                                             </form>
